@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Efficiency Prediction</title>
+    
+</head>
+<body>
+    <style>
+       
+             body {
+            background-image: url('C:\Users\navan\OneDrive\Desktop\IBM\windmills-1838788_1920.jpg');
+            background-size: cover;
+
+        }
+        h2 {
+            color: #1c05b1;
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            font-size: 40px;
+            text-align: center;
+            margin-bottom: 90px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #911d1d;
+            color: rgb(247, 242, 242);
+            border: none;
+            cursor: pointer;
+        }
+        
+        input {
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 50%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        input::placeholder {
+            color: #ae1111;
+            font-style: italic;
+        }
+        label {
+            color: #e00404;
+            font-family: 'Arial', sans-serif;
+            display: block;
+            
+            margin-bottom: 10px;
+        }
+        h3 {
+            color: black;
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            font-size: 30px;
+            text-align: center;
+
+    </style>
+    <h2 >Predict Heating & Cooling Load</h2>
+    <form action="{{ url_for('predict') }}" method="post">
+        <label >Enter Features (X1 to X8):</label><br>
+        <input type="text" name="X1" placeholder="Relative Compactness" required><br>
+        <input type="text" name="X2" placeholder="Surface Area" required><br>
+        <input type="text" name="X3" placeholder="Wall Area" required><br>
+        <input type="text" name="X4" placeholder="Roof Area" required><br>
+        <input type="text" name="X5" placeholder="Overall Height" required><br>
+        <input type="text" name="X6" placeholder="Orientation" required><br>
+        <input type="text" name="X7" placeholder="Glazing Area" required><br>
+        <input type="text" name="X8" placeholder="Glazing Area Distribution" required><br>
+        <button type="submit">Predict</button>
+    </form>
+
+    <h3>{{ prediction_text }}</h3>
+</body>
+</html>
